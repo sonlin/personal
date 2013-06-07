@@ -4,7 +4,7 @@ source /data/services/mbtq/var/monitor/service.conf
 source /data/services/mbtq/var/monitor/warnbysms.sh
 source /data/services/mbtq/var/monitor/monitor_library.sh
 
-dead_process=$( processmonitor )
+dead_process=$( processmonitor "$service" )
 
 local_ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1):"
 if [ "$dead_process"x != ""x ];then
